@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A collatz-sejtés</title>
+  <link rel="stylesheet" href="src/css/style.css">
+</head>
+<body>
+  <script src="/src/js/script.js"></script>
+  <!-- God forgive me for inline css -->
+  <h1 style="text-align: center;">A Collatz-sejtés</h1>
+  <p>A Collatz sejtés egy máig megoldatlan matematikai probléma, amely azt allítja, hogy 3n+1 rekurzívan mindig 4, 2, és 1re végződik.<br><br>A probléma:
+
+    a<sub>n</sub>+1 = { ha a<sub>n</sub> páros: a<sub>n</sub> / 2; különben 3a<sub>n</sub>+1.</p>
+    
+  <p>Itt egy példa; ez nem fogja kilistázni az eredményt, de azonnal megfog állni, amikor az eredmény egyenlő 1-gyel:</p>
+  <p style="display: inline-block;">n =</p> <input type="number" id="szam">
+  <button onclick="collatz()">Próba</button>
+  <br><span id="result"></span>
+  <br>
+  <p>Mivel a collatz sejtés esetében egy páros érték megadásánál megfeleződik az érték, és azután ujrakezdődik a ciklus, bármély megadott érték mindig dekrementál. Emiatt teknikailag nem megoldatlan probléma; mivel minden eséllyel ugyan azzal a végződő páros 4, 2, és páratlan 1-gyel fog végződni.<br><br>További információ: <a href="https://hu.wikipedia.org/wiki/Collatz-sejt%C3%A9s" target="_blank">Wikipédia</a></p>
+</body>
+</html>
