@@ -23,7 +23,7 @@ function collatz() {
     if (n != 1) {
     k = k + n.toString() + ", ";
     } else {
-      k = n.toString();
+      k = k + n.toString();
     }
     // "i swear i debugged for more than 4 tests" with clear syntax errors in debug prints
     // console.debug(k);
