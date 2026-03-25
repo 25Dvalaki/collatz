@@ -8,6 +8,12 @@ function collatz() {
   // integers only since we use modulo anyways!
   // note: use absolute value (im not letting you crash your browsre lmao)
   var n = Math.abs(parseInt(document.getElementById("szam").value));
+  
+  // guess who forgot about 2 extremely simple crashes...
+  if (isNaN(n) || n == 0) {
+    console.error("Adjon meg egy értéket!");
+    return;
+  }
 
   // amount of times the loop has ran (its not k because that would represent product here if i recall my math right)
   var i = 0;
@@ -23,7 +29,7 @@ function collatz() {
       n = 3 * n + 1;
     }
     i++;
-    console.log(n)
+    console.log(n);
   }
 
   document.getElementById("result").innerHTML = i + " eséllyel futódott le.";

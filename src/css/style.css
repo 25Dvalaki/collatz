@@ -1,4 +1,7 @@
 body {
-  background-color: black;
-  color: white;
+  color: rgb(131, 216, 212);
+}
+
+h1 {
+  text-align: center;
 }
