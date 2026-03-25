@@ -1,36 +1,36 @@
 function collatz() {
 
-  // clear console so i can spam it :p
-  console.clear();
-
-
-  // first just get the value
-  // integers only since we use modulo anyways!
-  // note: use absolute value (im not letting you crash your browsre lmao)
+  // get integer, absolute value it so you dont do a recursive memleak
   var n = Math.abs(parseInt(document.getElementById("szam").value));
+  let k = ""; // write the results all at once (set later)
   
-  // guess who forgot about 2 extremely simple crashes...
+  // crash prevention hhhh
   if (isNaN(n) || n == 0) {
     document.getElementById("result").innerHTML = "Adjon meg egy nem-nulla értéket!";
     return;
   }
 
-  // amount of times the loop has ran (its not k because that would represent product here if i recall my math right)
+  // runs
   var i = 0;
-  /*
-  not the same as the flowgorithm project because i actually like rewriting stuff in other languages for some reason and bloating the hell out of it
-  ...i dont know why. i just enjoyed it.
-  */
 
+  // actual func
   while (n != 1) {
     if ((n % 2) == 0) {
       n = n / 2;
     } else {
       n = 3 * n + 1;
     }
+    if (n != 1) {
+    k = k + n.toString() + ", ";
+    } else {
+      k = n.toString();
+    }
+    // "i swear i debugged for more than 4 tests" with clear syntax errors in debug prints
+    // console.debug(k);
+    // console.debug(n);
     i++;
-    console.log(n);
   }
 
-  document.getElementById("result").innerHTML = i + " eséllyel futódott le.";
+  document.getElementById("result").innerHTML = i + " eséllyel futódott le, értékek:";
+  document.getElementById("results").innerHTML = k;
 }
