@@ -1,8 +1,16 @@
+// appends the value of n (as string) to k
+// felt like making stuff more readable so this exists
+function strmrgls(a, b) {
+  // C gave me sleep paralysis demons, toString() go
+  a = a + b.toString() + (b != 1 ? ", " : "");
+  return a;
+}
+
 function collatz() {
 
-  // get integer, absolute value it so you dont do a recursive memleak
+  // get input as integer, absolute value in case negative
   var n = Math.abs(parseInt(document.getElementById("szam").value));
-  let k = ""; // result writing
+  let k = ""; // listing
   
   // crash prevention
   if (isNaN(n) || n == 0) {
@@ -10,31 +18,20 @@ function collatz() {
     return;
   }
 
-  // runs
+  // amount of times ran
   var i = 0;
 
-  // actual func
   while (n != 1) {
-    if ((n % 2) == 0) {
-      n = n / 2;
-    } else {
-      n = 3 * n + 1;
-    }
+    // do theory or something idk
+    n = (n % 2 == 0 ? n/2 : 3*n+1);
 
-    /** not sure if toString() is necessary because
-    * JS has like no typesafety but who cares, trying
-    * C has given me sleep paralysis demons
-    */
+    k = strmrgls(k, n);
 
-    if (n != 1) {
-      k = k + n.toString() + ", ";
-    } else {
-      k = k + n.toString();
-    }
-  
+    // +1 run
     i++;
   }
 
+  // output result
   document.getElementById("result").innerHTML = i + " eséllyel futódott le, értékek:";
   document.getElementById("results").innerHTML = k;
 }
