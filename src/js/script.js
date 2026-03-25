@@ -27,9 +27,9 @@ function collatz() {
     */
 
     if (n != 1) {
-    k = k + n.toString() + ", ";
+      k = k + n.toString() + ", ";
     } else {
-    k = k + n.toString();
+      k = k + n.toString();
     }
   
     i++;
