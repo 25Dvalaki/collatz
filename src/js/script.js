@@ -11,7 +11,7 @@ function collatz() {
   
   // guess who forgot about 2 extremely simple crashes...
   if (isNaN(n) || n == 0) {
-    console.error("Adjon meg egy értéket!");
+    document.getElementById("result").innerHTML = "Adjon meg egy nem-nulla értéket!";
     return;
   }
 
