@@ -6,11 +6,14 @@ function strmrgls(a, b) {
   return a;
 }
 
-// extra shorter
+// the next two functions are just here for the laziness factor and can be ignored
+// this is basically just an alias for getElementById
 function byID(a) {
   return document.getElementById(a);
 }
 
+// just change the result jargon
+// as mentioned earlier this is just for laziness
 function output(a, b) {
     byID("result").innerHTML = a;
     // !b is true when b is not given a value
@@ -18,6 +21,7 @@ function output(a, b) {
     byID("results").innerHTML = (b ? b : "Az értékek itt lesznek kilistázva.");
 }
 
+// the actual thing
 function collatz() {
 
   // get input as integer, absolute value in case negative
