@@ -11,6 +11,13 @@ function byID(a) {
   return document.getElementById(a);
 }
 
+function output(a, b) {
+    byID("result").innerHTML = a;
+    if (b.length >= 1) {
+      byID("results").innerHTML = b;
+    }
+}
+
 function collatz() {
 
   // get input as integer, absolute value in case negative
@@ -33,6 +40,10 @@ function collatz() {
   }
 
   // output result
-  byID("result").innerHTML = i + " eséllyel futódott le, értékek:";
-  byID("results").innerHTML = k;
+  // DON'T output to results if nothing would be. it looks ugly.
+  if ((k.length >= 1) && (i >= 1)) {
+    output((i + " eséllyel futódott le, értékek:"), k);
+  } else {
+    output("Nem futódott le, mivel azonnal 1-re esett.", "Az értékek itt lesznek kilistázva.");
+  }
 }
