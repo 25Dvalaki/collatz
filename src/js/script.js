@@ -13,9 +13,9 @@ function byID(a) {
 
 function output(a, b) {
     byID("result").innerHTML = a;
-    if (b.length >= 1) {
-      byID("results").innerHTML = b;
-    }
+    // !b is true when b is not given a value
+    // (glad this is a universal thing and not just in C)
+    byID("results").innerHTML = (b ? b : "Az értékek itt lesznek kilistázva.");
 }
 
 function collatz() {
@@ -26,8 +26,8 @@ function collatz() {
   var i = 0; // amount of times ran
   
   // crash prevention (0 & no input)
-  if (isNaN(n) || n == 0) {
-    byID("result").innerHTML = "Adjon meg egy nem-nulla értéket!";
+  if (isNaN(n) || n == 0 || n == 2) {
+    output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!")
     return;
   }
 
@@ -44,6 +44,6 @@ function collatz() {
   if ((k.length >= 1) && (i >= 1)) {
     output((i + " eséllyel futódott le, értékek:"), k);
   } else {
-    output("Nem futódott le, mivel azonnal 1-re esett.", "Az értékek itt lesznek kilistázva.");
+    output("Nem futódott le, mivel azonnal 1-re esett.");
   }
 }
