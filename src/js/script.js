@@ -30,7 +30,7 @@ function collatz() {
   var i = 0; // amount of times ran
   
   // crash prevention (0 & no input) + just dont run if its less than 2
-  if (isNaN(n) || n == 0 || n <= 2) {
+  if (isNaN(n) || n <= 2) {
     output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!")
     return;
   }
