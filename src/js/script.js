@@ -25,8 +25,8 @@ function collatz() {
   let k = ""; // listing
   var i = 0; // amount of times ran
   
-  // crash prevention (0 & no input)
-  if (isNaN(n) || n == 0 || n == 2) {
+  // crash prevention (0 & no input) + just dont run if its less than 2
+  if (isNaN(n) || n == 0 || n <= 2) {
     output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!")
     return;
   }
@@ -40,10 +40,5 @@ function collatz() {
   }
 
   // output result
-  // DON'T output to results if nothing would be. it looks ugly.
-  if ((k.length >= 1) && (i >= 1)) {
-    output((i + " eséllyel futódott le, értékek:"), k);
-  } else {
-    output("Nem futódott le, mivel azonnal 1-re esett.");
-  }
+  output((i + " eséllyel futódott le, értékek:"), k);
 }
