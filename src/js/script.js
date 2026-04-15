@@ -1,4 +1,4 @@
-// appends the value of n (as string) to k
+// appends b (as string) to a
 // "string merge listing"
 function strmrgls(a, b) {
   // C gave me sleep paralysis demons, toString() go
@@ -6,7 +6,7 @@ function strmrgls(a, b) {
   return a;
 }
 
-// the next two functions are just here for the laziness factor and can be ignored
+// the next two functions are just here for laziness and can be ignored
 // this is basically just an alias for getElementById
 function byID(a) {
   return document.getElementById(a);
@@ -27,7 +27,7 @@ function collatz() {
   // get input as integer, absolute value in case negative
   var n = Math.abs(parseInt(byID("szam").value));
   let k = ""; // listing
-  var i = 0; // amount of times ran
+  var runs = 0; // amount of times ran
   
   // crash prevention (0 & no input) + just dont run if its less than 2
   if (isNaN(n) || n <= 2) {
@@ -36,13 +36,12 @@ function collatz() {
   }
 
   while (n != 1) {
-    n = (!(n % 2) ? n/2 : 3*n+1); // the theory
+    n = (!(n % 2) ? n/2 : 3*n+1); // theory
 
-    k = strmrgls(k, n); // merge
+    k = strmrgls(k, n);
 
-    i++;
+    runs++;
   }
 
-  // output result
-  output((i + " eséllyel futódott le, értékek:"), k);
+  output((runs + " eséllyel futódott le, értékek:"), k);
 }
