@@ -24,16 +24,17 @@ function output(a, b) {
 // the actual thing
 function collatz() {
 
-  // get input as integer, absolute value in case negative
+  // get input as *positive* integer
   var n = Math.abs(parseInt(byID("szam").value));
-  let k = ""; // listing
-  var runs = 0;
-  
-  // crash prevention (0 & no input) + just dont run if its less than 2
+
+  // NaN crash prevention
   if (isNaN(n) || n <= 2) {
     output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!")
     return;
   }
+
+  let k = ""; // list
+  var runs = 0;
 
   while (n != 1) {
     n = (!(n % 2) ? n/2 : 3*n+1); // theory
