@@ -27,7 +27,7 @@ function collatz() {
   // get input as integer, absolute value in case negative
   var n = Math.abs(parseInt(byID("szam").value));
   let k = ""; // listing
-  var runs = 0; // amount of times ran
+  var runs = 0;
   
   // crash prevention (0 & no input) + just dont run if its less than 2
   if (isNaN(n) || n <= 2) {
