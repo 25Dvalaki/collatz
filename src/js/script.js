@@ -1,3 +1,17 @@
+// this is just an alias for getElementById
+function byID(a) {
+  return document.getElementById(a);
+}
+
+// just change the result jargon
+// laziness
+function output(a, b) {
+    byID("result").innerHTML = a;
+    // !b is true when b is not given a value
+    // (glad this is a universal thing and not just in C)
+    byID("results").innerHTML = (b ? b : "Az értékek itt lesznek kilistázva.");
+}
+
 // appends b (as string) to a
 // "string merge listing"
 function strmrgls(a, b) {
@@ -6,43 +20,21 @@ function strmrgls(a, b) {
   return a;
 }
 
-// the next two functions are just here for laziness and can be ignored
-// this is basically just an alias for getElementById
-function byID(a) {
-  return document.getElementById(a);
-}
-
-// just change the result jargon
-// as mentioned earlier this is just for laziness
-function output(a, b) {
-    byID("result").innerHTML = a;
-    // !b is true when b is not given a value
-    // (glad this is a universal thing and not just in C)
-    byID("results").innerHTML = (b ? b : "Az értékek itt lesznek kilistázva.");
-}
-
 // the actual thing
 function collatz() {
-
   // get input as *positive* integer
   var n = Math.abs(parseInt(byID("szam").value));
-
   // NaN crash prevention
   if (isNaN(n) || n <= 2) {
-    output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!")
+    output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!");
     return;
   }
-
   let k = ""; // list
   var runs = 0;
-
   while (n != 1) {
-    n = (!(n % 2) ? n/2 : 3*n+1); // theory
-
+    n = (!(n%2) ? n/2 : 3*n+1); // theory
     k = strmrgls(k, n);
-
     runs++;
   }
-
   output((runs + " eséllyel futódott le, értékek:"), k);
 }
