@@ -7,8 +7,6 @@ function byID(a) {
 // laziness
 function output(a, b) {
     byID("result").innerHTML = a;
-    // !b is true when b is not given a value
-    // (glad this is a universal thing and not just in C)
     byID("results").innerHTML = (b ? b : "Az értékek itt lesznek kilistázva.");
 }
 
@@ -22,13 +20,13 @@ function strmrgls(a, b) {
 
 // the actual thing
 function collatz() {
-  // get input as *positive* integer
   var n = Math.abs(parseInt(byID("szam").value));
-  // NaN crash prevention
+
   if (isNaN(n) || n <= 2) {
     output("Adjon meg egy nem-nulla értéket, amely nagyobb mint 2!");
     return;
   }
+
   let k = ""; // list
   var runs = 0;
   while (n != 1) {
