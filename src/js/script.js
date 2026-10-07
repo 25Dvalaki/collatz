@@ -28,7 +28,7 @@ function collatz() {
   }
 
   let k = ""; // list
-  var runs = 1;
+  var runs = 0;
   while (n != 1) {
     n = (!(n%2) ? n/2 : 3*n+1); // theory
     k = strmrgls(k, n);
